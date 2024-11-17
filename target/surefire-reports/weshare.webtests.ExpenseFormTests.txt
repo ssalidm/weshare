@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: weshare.webtests.ExpenseFormTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 4.115 s <<< FAILURE! - in weshare.webtests.ExpenseFormTests
+captureExpense  Time elapsed: 4.11 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+
+expected: "/expenses"
+ but was: "/expense.action"
+ignoring case considerations
+	at weshare.webtests.ExpenseFormTests.captureExpense(ExpenseFormTests.java:53)
+

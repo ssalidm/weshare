@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>WeShare</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pangolin">
+    <link rel="stylesheet" href="../html/css/normalize.css">
+    <link rel="stylesheet" href="../html/css/main.css">
+    <link rel="stylesheet" href="/templates/expenses.html">
+    <link rel="stylesheet" href="/templates/exception.html">
+    <link rel="stylesheet" href="/templates/layout.html">
+</head>
+<body>
+<div layout:fragment="contents">
+    <section class="expenseList">
+        <h1>Submit a payment request for the following expense</h1>
+        <main>
+            <table>
+                <tr>
+                    <td>Date</td>
+                    <td><span  id="expense_date" th:text="${expense.date}"></span></td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td><span id="expense_description" th:text="${expense.description}"></span></td>
+                </tr>
+                <tr>
+                    <td>Amount</td>
+                    <td><span id="expense_amount" th:text="${expense.amount}"></span></td>
+                </tr>
+            </table>
+            <div id="expenses" th:unless="${#lists.isEmpty(expense.listOfPaymentRequests())}">
+                <h1>Previous Payment request for the following expense</h1>
+                <table>
+                    <tr>
+                        <th>Who</th>
+                        <th>Due</th>
+                        <th>Paid?</th>
+                        <th>How Much</th>
+                    </tr>
+
+                    <th:block th:each="expensepayment: ${expense.listOfPaymentRequests()}">
+                        <tr>
+                            <td><span th:id="${'paymentrequest_who_'+expensepayment.getId}" th:text="${expensepayment.getPersonWhoShouldPayBack().getName()}"></span></td>
+                            <td><span  th:id="${'paymentrequest_date_'+expensepayment.getId()}" th:text="${expensepayment.getDueDate()}"></span></td>
+                            <td><span th:id="${'paymentrequest_paid_'+expensepayment.getId()}" th:if="${expensepayment.isPaid()}">yes</span>
+                                <span th:id="${'paymentrequest_paid_'+expensepayment.getId()}" th:unless="${expensepayment.isPaid()}">no</span></td>
+                            <td><span th:id="${'paymentrequest_amount_'+expensepayment.getId()}" th:text="${expensepayment.getAmountToPay()}"></span></td>
+                        </tr>
+                    </th:block>
+                    <tfoot>
+                    <hr>
+                    <tr>
+                        <td>
+                            Total amount of payments requested
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td id="total_paymentrequest" th:text="${expense.totalAmountOfPaymentsRequested()}"></td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <form method="post" action="/paymentrequest.action" enctype="application/x-www-form-urlencoded">
+
+                <label for="email">The email address of the person that should pay you</label>
+                <input name="email" id="email" type="email" autofocus required>
+                <label for="amount">The amount they should pay(maximum <span th:text="${expense.amount}">ZAR 300.00</span>)!</label>
+                <input name="amount" id="amount" type="number" autofocus required>
+                <label for="due_date">By when must this claim be settled(dd/mm/yyyy)</label>
+                <input name="due_date" id="due_date" type="text" autofocus required>
+                <input name="expense_id" id="expense_id" type="hidden" th:value="${expense.id}">
+                <input id="submit" type="submit" value="submit"/>
+            </form>
+        </main>
+    </section>
+</div>
+</body>
+</html>

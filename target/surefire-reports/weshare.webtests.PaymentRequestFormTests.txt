@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: weshare.webtests.PaymentRequestFormTests
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 4.341 s <<< FAILURE! - in weshare.webtests.PaymentRequestFormTests
+noPaymentRequests  Time elapsed: 1.516 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "String.split(String)" because "href" is null
+	at weshare.webtests.PaymentRequestFormTests.noPaymentRequests(PaymentRequestFormTests.java:51)
+
+capturePaymentRequest  Time elapsed: 1.266 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "String.split(String)" because "href" is null
+	at weshare.webtests.PaymentRequestFormTests.capturePaymentRequest(PaymentRequestFormTests.java:78)
+
+hasPriorPaymentRequests  Time elapsed: 1.556 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "String.split(String)" because "href" is null
+	at weshare.webtests.PaymentRequestFormTests.hasPriorPaymentRequests(PaymentRequestFormTests.java:64)
+

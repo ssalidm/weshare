@@ -1,0 +1,30 @@
+-------------------------------------------------------------------------------
+Test set: weshare.webtests.PaymentRequestsReceivedPageTests
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 7.071 s <<< FAILURE! - in weshare.webtests.PaymentRequestsReceivedPageTests
+havePaymentRequestsReceived  Time elapsed: 2.569 s  <<< ERROR!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"css selector","selector":"#grand_total"}
+  (Session info: headless chrome=114.0.5735.90)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'pop-os', ip: '192.168.43.232', os.name: 'Linux', os.arch: 'amd64', os.version: '6.9.3-76060903-generic', java.version: '21.0.3'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [cb328350e30461d2c5838801ba162008, findElement {using=id, value=grand_total}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.90, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: /tmp/.com.google.Chrome.WVgOkA}, goog:chromeOptions: {debuggerAddress: localhost:32955}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: LINUX, proxy: Proxy(), se:cdp: ws://localhost:32955/devtoo..., se:cdpVersion: 114.0.5735.90, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: cb328350e30461d2c5838801ba162008
+	at weshare.webtests.PaymentRequestsReceivedPageTests.havePaymentRequestsReceived(PaymentRequestsReceivedPageTests.java:65)
+
+payPaymentRequestReceived  Time elapsed: 2.472 s  <<< ERROR!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"xpath","selector":"//input[@type='submit']"}
+  (Session info: headless chrome=114.0.5735.90)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'pop-os', ip: '192.168.43.232', os.name: 'Linux', os.arch: 'amd64', os.version: '6.9.3-76060903-generic', java.version: '21.0.3'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [dd23b1bbc5254431394f2d31bbb009b0, findElement {using=xpath, value=//input[@type='submit']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.90, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: /tmp/.com.google.Chrome.5fALH6}, goog:chromeOptions: {debuggerAddress: localhost:38665}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: LINUX, proxy: Proxy(), se:cdp: ws://localhost:38665/devtoo..., se:cdpVersion: 114.0.5735.90, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: dd23b1bbc5254431394f2d31bbb009b0
+	at weshare.webtests.PaymentRequestsReceivedPageTests.payPaymentRequestReceived(PaymentRequestsReceivedPageTests.java:79)
+
